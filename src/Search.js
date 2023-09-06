@@ -1,6 +1,9 @@
+import { useContext } from "react"
 import { IoAddCircle } from "react-icons/io5"
 import { Link } from "react-router-dom"
-const Search = ({search,setSearch}) => {
+import DataContext from "./context/DataContext"
+const Search = () => {
+  const {search,setSearch} = useContext(DataContext)
   return (
     <div className="search-container">
         <form onSubmit={(e)=>e.preventDefault()}>

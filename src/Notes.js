@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import {RiDeleteBin6Line} from 'react-icons/ri'
 
-const Notes = ({notes,handleDelete}) => {
+const Notes = ({searchResult,handleDelete}) => {
   return (
     <div className = "noteContainer">
         {
-            notes.map((note)=>(
+            searchResult.map((note)=>(
                 <div key={note.id} className="noteCard" id="noteCard" style={{
                     backgroundColor : (note.background)
                 }}>

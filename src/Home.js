@@ -3,8 +3,11 @@ import { Link, Route, Routes } from 'react-router-dom'
 import NewNotes from './NewNotes'
 import Notes from './Notes'
 import EditNote from './EditNote'
+import { useContext } from 'react'
+import DataContext from './context/DataContext'
 
-const Home = ({notes,noteTitle,setNoteTitle,noteBody,setNoteBody,handleSubmit,editNoteTitle,setEditNoteTitle,editNoteBody,setEditNoteBody,handleEdit,handleDelete}) => {
+const Home = () => {
+  const {searchResult,noteTitle,setNoteTitle,noteBody,setNoteBody,handleSubmit,editNoteTitle,setEditNoteTitle,editNoteBody,setEditNoteBody,handleEdit,handleDelete} = useContext(DataContext)
   return (
     <main>
         
@@ -17,11 +20,11 @@ const Home = ({notes,noteTitle,setNoteTitle,noteBody,setNoteBody,handleSubmit,ed
             setNoteBody= {setNoteBody}
             handleSubmit= {handleSubmit}/>}></Route>
             <Route path='/' element = {<Notes
-            notes= {notes}
+            searchResult= {searchResult}
             handleDelete= {handleDelete}
             />} />
             <Route path='/editNote/:id' element={<EditNote 
-            notes= {notes}
+            searchResult= {searchResult}
             editNoteTitle= {editNoteTitle}
             setEditNoteTitle= {setEditNoteTitle}
             editNoteBody= {editNoteBody}
